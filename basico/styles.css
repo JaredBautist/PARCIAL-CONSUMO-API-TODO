@@ -1,0 +1,120 @@
+/* ====== Base ====== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: #f7f9fb; /* antes: var(--bg) */
+  color: #222222;
+}
+
+/* ====== Header ====== */
+header {
+  background: #1565c0; /* antes: var(--primary) */
+  color: #ffffff;
+  padding: 16px;
+  text-align: center;
+}
+
+/* ====== Contenedor principal ====== */
+main {
+  max-width: 980px;
+  margin: 16px auto;
+  padding: 0 12px;
+}
+
+/* ====== Navegación ====== */
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+/* ====== Botones ====== */
+.btn {
+  padding: 8px 12px;
+  border: 1px solid #cccccc;
+  background: #ffffff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: #1565c0;
+  color: #ffffff;
+  border-color: #1565c0;
+}
+
+/* ====== Tarjetas ====== */
+.card {
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-bottom: 12px;
+}
+
+/* ====== Grid (versión simple con flex) ====== */
+.grid {
+  display: flex;           /* en lugar de grid avanzado */
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Los hijos de .grid ocuparán mínimo 220px y se acomodan */
+.grid > * {
+  flex: 1 1 220px;
+}
+
+/* ====== Formularios ====== */
+label {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #222222;
+}
+
+/* ====== Tablas ====== */
+.table-wrap {
+  overflow-x: auto; /* más explícito para tablas anchas */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+th,
+td {
+  padding: 8px;
+  border-bottom: 1px solid #eeeeee;
+  text-align: left;
+}
+
+/* ====== Bloques de código / pre ====== */
+pre {
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  padding: 8px;
+  border-radius: 6px;
+  max-height: 280px;
+  overflow: auto;
+}
+
+/* ====== Utilidades ====== */
+.hidden {
+  display: none;
+}

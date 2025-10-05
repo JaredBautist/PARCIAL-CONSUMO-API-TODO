@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Todo App (Bootstrap)</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <header class="bg-primary text-white p-3 text-center"><h1 class="h4 m-0"> Todo App (Bootstrap)</h1></header>
+  <main class="container my-3">
+    <div class="card card-body mb-3 shadow-sm">
+      <strong>Operación</strong>
+      <div class="d-flex gap-2 flex-wrap mt-2">
+        <button id="btn-tab-get" class="btn btn-primary">GET</button>
+        <button id="btn-tab-post" class="btn btn-outline-secondary">POST</button>
+        <button id="btn-tab-put" class="btn btn-outline-secondary">PUT</button>
+        <button id="btn-tab-delete" class="btn btn-outline-secondary">DELETE</button>
+      </div>
+    </div>
+
+    <section id="tab-get" class="card card-body mb-3 op-tab">
+      <h3 class="h5">GET /Todos</h3>
+      <div class="row g-2 align-items-end">
+        <div class="col-auto"><button id="btn-get-all" class="btn btn-primary">Listar todos</button></div>
+        <div class="col-md-3">
+          <label class="form-label">GET /Todos/{id}</label>
+          <input id="get-id" class="form-control" placeholder="ID">
+        </div>
+        <div class="col-auto"><button id="btn-get-byid" class="btn btn-secondary">Consultar ID</button></div>
+      </div>
+    </section>
+
+    <section id="tab-post" class="card card-body mb-3 op-tab d-none">
+      <h3 class="h5">POST /Todos</h3>
+      <form id="form-post" class="row g-3">
+        <div class="col-md-4"><label class="form-label">Título</label><input id="post-title" class="form-control" required></div>
+        <div class="col-md-6"><label class="form-label">Descripción</label><textarea id="post-description" class="form-control" rows="3"></textarea></div>
+        <div class="col-md-2"><label class="form-label">Prioridad</label><select id="post-priority" class="form-select"><option>1</option><option>2</option><option selected>3</option></select></div>
+        <div class="col-md-4"><label class="form-label">Fecha límite</label><input id="post-due" type="datetime-local" class="form-control"></div>
+        <div class="col-md-2"><label class="form-label">Completada</label><input id="post-completed" type="checkbox" class="form-check-input ms-2"></div>
+        <div class="col-12"><button class="btn btn-primary" type="submit">Crear</button></div>
+      </form>
+    </section>
+
+    <section id="tab-put" class="card card-body mb-3 op-tab d-none">
+      <h3 class="h5">PUT /Todos/{id}</h3>
+      <form id="form-put" class="row g-3">
+        <div class="col-md-2"><label class="form-label">ID</label><input id="put-id" class="form-control" required></div>
+        <div class="col-md-4"><label class="form-label">Título</label><input id="put-title" class="form-control" required></div>
+        <div class="col-md-6"><label class="form-label">Descripción</label><textarea id="put-description" class="form-control" rows="3"></textarea></div>
+        <div class="col-md-2"><label class="form-label">Prioridad</label><select id="put-priority" class="form-select"><option>1</option><option>2</option><option selected>3</option></select></div>
+        <div class="col-md-4"><label class="form-label">Fecha límite</label><input id="put-due" type="datetime-local" class="form-control"></div>
+        <div class="col-md-2"><label class="form-label">Completada</label><input id="put-completed" type="checkbox" class="form-check-input ms-2"></div>
+        <div class="col-12"><button class="btn btn-primary" type="submit">Actualizar</button></div>
+      </form>
+    </section>
+
+    <section id="tab-delete" class="card card-body mb-3 op-tab d-none">
+      <h3 class="h5">DELETE /Todos/{id}</h3>
+      <form id="form-delete" class="row g-3">
+        <div class="col-md-3"><label class="form-label">ID</label><input id="delete-id" class="form-control" required></div>
+        <div class="col-auto"><label class="form-label">&nbsp;</label><button class="btn btn-danger d-block" type="submit">Eliminar</button></div>
+      </form>
+    </section>
+
+    <section class="card card-body mb-3">
+      <h3 class="h5">Panel de Respuestas (JSON)</h3>
+      <div class="row g-3">
+        <div class="col-md-6"><label class="form-label">Última solicitud</label><pre id="req-json" class="border rounded p-2 bg-light"></pre></div>
+        <div class="col-md-6"><label class="form-label">Última respuesta</label><pre id="res-json" class="border rounded p-2 bg-light"></pre></div>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+  <script>
+    // Ajuste de visibilidad para Bootstrap
+    window.showTab = (t)=>{ document.querySelectorAll('.op-tab').forEach(x=>x.classList.add('d-none')); document.getElementById('tab-'+t).classList.remove('d-none'); };
+    document.getElementById('btn-tab-get').onclick=()=>showTab('get');
+    document.getElementById('btn-tab-post').onclick=()=>showTab('post');
+    document.getElementById('btn-tab-put').onclick=()=>showTab('put');
+    document.getElementById('btn-tab-delete').onclick=()=>showTab('delete');
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Todo App (CSS básico)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header><h2> Todo App (CSS básico) </h2></header>
+  <main>
+    <div class="card">
+      <strong>Operación</strong>
+      <div class="nav">
+        <button id="btn-tab-get" class="btn primary">GET</button>
+        <button id="btn-tab-post" class="btn">POST</button>
+        <button id="btn-tab-put" class="btn">PUT</button>
+        <button id="btn-tab-delete" class="btn">DELETE</button>
+      </div>
+    </div>
+
+    <!-- GET -->
+    <section id="tab-get" class="card op-tab">
+      <h3>GET /Todos</h3>
+      <div class="grid">
+        <div><button id="btn-get-all" class="btn primary">Listar todos</button></div>
+        <div>
+          <label for="get-id">GET /Todos/{id} (opcional)</label>
+          <div class="grid">
+            <input id="get-id" placeholder="ID" />
+            <button id="btn-get-byid" class="btn">Consultar ID</button>
+          </div>
+        </div>
+      </div>
+      <div class="table-wrap" style="margin-top:10px;">
+      </div>
+    </section>
+
+    <!-- POST -->
+    <section id="tab-post" class="card op-tab hidden">
+      <h3>POST /Todos</h3>
+      <form id="form-post" class="grid">
+        <div><label for="post-title">Título</label><input id="post-title" required /></div>
+        <div><label for="post-description">Descripción</label><textarea id="post-description" rows="3"></textarea></div>
+        <div><label for="post-priority">Prioridad</label><select id="post-priority"><option>1</option><option>2</option><option selected>3</option></select></div>
+        <div><label for="post-due">Fecha límite</label><input id="post-due" type="datetime-local" /></div>
+        <div><label for="post-completed">Completada</label><input id="post-completed" type="checkbox" /></div>
+        <div><label>&nbsp;</label><button class="btn primary" type="submit">Crear</button></div>
+      </form>
+    </section>
+
+    <!-- PUT -->
+    <section id="tab-put" class="card op-tab hidden">
+      <h3>PUT /Todos/{id}</h3>
+      <form id="form-put" class="grid">
+        <div><label for="put-id">ID</label><input id="put-id" required /></div>
+        <div><label for="put-title">Título</label><input id="put-title" required /></div>
+        <div><label for="put-description">Descripción</label><textarea id="put-description" rows="3"></textarea></div>
+        <div><label for="put-priority">Prioridad</label><select id="put-priority"><option>1</option><option>2</option><option selected>3</option></select></div>
+        <div><label for="put-due">Fecha límite</label><input id="put-due" type="datetime-local" /></div>
+        <div><label for="put-completed">Completada</label><input id="put-completed" type="checkbox" /></div>
+        <div><label>&nbsp;</label><button class="btn primary" type="submit">Actualizar</button></div>
+      </form>
+    </section>
+
+    <!-- DELETE -->
+    <section id="tab-delete" class="card op-tab hidden">
+      <h3>DELETE /Todos/{id}</h3>
+      <form id="form-delete" class="grid">
+        <div><label for="delete-id">ID</label><input id="delete-id" required /></div>
+        <div><label>&nbsp;</label><button class="btn primary" type="submit">Eliminar</button></div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h3>Panel de Respuestas (JSON)</h3>
+      <div class="grid">
+        <div><label>Última solicitud</label><pre id="req-json"></pre></div>
+        <div><label>Última respuesta</label><pre id="res-json"></pre></div>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

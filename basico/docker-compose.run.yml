@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  basico:
+    image: jaredbautista16/basico:latest
+    container_name: basico
+    ports:
+      - "8080:80"
+    restart: unless-stopped

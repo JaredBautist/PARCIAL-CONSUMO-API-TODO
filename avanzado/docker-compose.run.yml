@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  project3:
+    image: jaredbautista16/avanzado:latest
+    container_name: avanzado
+    ports:
+      - "8080:80"
+    restart: unless-stopped

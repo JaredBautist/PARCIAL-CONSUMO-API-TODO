@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  project2:
+    image: jaredbautista16/intermedio:latest
+    container_name: intermedio
+    ports:
+      - "8081:80"
+    restart: unless-stopped

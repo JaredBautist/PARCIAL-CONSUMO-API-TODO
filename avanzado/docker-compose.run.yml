@@ -4,5 +4,5 @@ services:
     image: jaredbautista16/avanzado:latest
     container_name: avanzado
     ports:
-      - "8080:80"
+      - "8082:80"
     restart: unless-stopped
